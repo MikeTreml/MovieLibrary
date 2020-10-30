@@ -39,36 +39,37 @@ function confirmDelete(id) {
     } 
 }
 function editMovieForm (data){
-    
-        $("#title").val(data[0].title);
-        $("#genre").val(data[0].genre);
-        $("#director").val(data[0].director);
+        $("#id-edit").val(data[0].movieId);
+        $("#title-edit").val(data[0].title);
+        $("#genre-edit").val(data[0].genre);
+        $("#director-edit").val(data[0].director);
         console.log(data[0].id);
 }
 
-// function processEditForm( e ){
-//     var dict = {
-//         Title : this["title"].value,
-//         Genre: this["genre"].value,
-//         Director: this["director"].value
-//     };
+function processEditForm( e ){
+    var dict = {
+        MovieId : parseInt(this["movieId"].value),
+        Title : this["title"].value,
+        Genre: this["genre"].value,
+        Director: this["director"].value
+    };
 
-//     $.ajax({
-//         url: 'https://localhost:44325/api/movie',
-//         dataType: 'json',
-//         type: 'put',
-//         contentType: 'application/json',
-//         data: JSON.stringify(dict),
-//         success: function( data, textStatus, jQxhr ){
-//             $('#response pre').html( data );
-//         },
-//         error: function( jqXhr, textStatus, errorThrown ){
-//             console.log( errorThrown );
-//         }
-//     });
+    $.ajax({
+        url: 'https://localhost:44325/api/movie',
+        dataType: 'json',
+        type: 'put',
+        contentType: 'application/json',
+        data: JSON.stringify(dict),
+        success: function( data, textStatus, jQxhr ){
+            $('#response pre').html( data );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
 
-//     e.preventDefault();
-// }
+    e.preventDefault();
+}
 
 
 

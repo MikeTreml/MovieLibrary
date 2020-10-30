@@ -25,13 +25,28 @@ namespace WebAPISample.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Actors")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genre")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Year")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovieId");

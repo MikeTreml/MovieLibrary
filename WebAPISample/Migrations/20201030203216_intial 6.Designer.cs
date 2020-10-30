@@ -9,8 +9,8 @@ using WebAPISample.Data;
 namespace WebAPISample.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20201029165806_intial3")]
-    partial class intial3
+    [Migration("20201030203216_intial 6")]
+    partial class intial6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,13 +27,28 @@ namespace WebAPISample.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Actors")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genre")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Year")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovieId");
