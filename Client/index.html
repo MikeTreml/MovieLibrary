@@ -23,18 +23,34 @@
         </div>
         <div id="movieData">
         </div>
-    
-        <form class="form" id="create-or-search-form">
-            <input type="text" name="title" placeholder="Title" />
-            <input type="text" name="genre" placeholder="Genre" />
-            <input type="text" name="director" placeholder="Director" />
-    
-            <button class="btn btn--white" type="submit">Submit</button>
-            <button class="btn btn--white" type="search">Search</button>
-        </form>
+        <div class="book">
+            <div class="book__form">
+                <form action="#" class="form" id="create-or-search-form">
+                    <div class="u-margin-bottom-medium">
+                        <h3 class="heading-tertiary">
+                            &ndash; Add or Find a Movie! &ndash;
+                        </h3>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Title" id="title" name="title">
+                        <label for="title" class="form__label">Title</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Genre" id="genre" name="genre" name="genre">
+                        <label for="genre" class="form__label">Genre</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Director" id="director" name="director">
+                        <label for="director" class="form__label">Director</label>
+                    </div>
+                    <div class="form__group">
+                        <button class="btn btn--white" type="submit">Submit &rarr;</button>
+                        <button class="btn btn--white" type="search">Search &rarr;</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
-    
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>

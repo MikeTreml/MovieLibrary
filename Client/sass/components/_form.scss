@@ -1,4 +1,9 @@
 .form {
+        width: 66.6666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+
     &__group:not(:last-child) {
         margin-bottom: 2rem;
     }
@@ -51,8 +56,6 @@
         visibility: hidden;
         transform: translateY(-4rem);
     }
-
-   
     
 }
 
