@@ -14,7 +14,7 @@ function LayoutMovies(data){
     let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button onclick="loadMovieForm(${i+1})">Edit</button></td><td><button>Delete</button></td></tr>`;
+        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn"><span><i class="icon-basic-trashcan-remove">"\e01f"</i><span></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
         $("#movieData").html(layout);
@@ -120,6 +120,7 @@ function processFormXX( e ){
     e.preventDefault();
 }
 
+$('#edit-form').submit( processEditForm );
 $('#create-or-search-form').submit( processForm );
 $('#create-or-search-form').search( processFormXX );
 
