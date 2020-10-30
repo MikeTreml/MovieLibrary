@@ -22,8 +22,8 @@ namespace WebAPISample.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-			      //var movieList = _context.Movies.Where(m =>m.MovieId == m.MovieId).ToList();
-			      return Ok(new string[] { "Server starting" });
+			 var movieList = _context.Movies.Where(m =>m.MovieId == m.MovieId).ToList();
+		    return Ok(movieList);
 
 		}
 
