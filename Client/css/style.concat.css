@@ -695,13 +695,16 @@ body {
 .movie-list__right {
   width: 60%;
   display: table-cell;
-  padding-left: 5rem; }
+  padding: 3rem 5rem; }
 
 .movie-list__left {
   width: 40%;
   display: table-cell;
   vertical-align: middle;
   padding: 3rem 5rem; }
+
+.table {
+  font-size: 1.4rem; }
 
 .row {
   max-width: 114rem;
