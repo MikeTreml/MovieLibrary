@@ -33,7 +33,7 @@ namespace WebAPISample.Controllers
         {
             // Retrieve movie by id from db logic
             // return Ok(movie);
-            var movie = _context.Movies.Where(m => m.MovieId == id).SingleOrDefault();// Added by Mike Treml 10/29
+            var movie = _context.Movies.Where(m => m.MovieId == id);// Added by Mike Treml 10/29
             return Ok(movie);
         }
 
