@@ -248,7 +248,8 @@ body {
 
 .movie-list__right {
   width: 60%;
-  display: table-cell; }
+  display: table-cell;
+  padding-left: 5rem; }
 
 .movie-list__left {
   width: 40%;
