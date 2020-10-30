@@ -686,7 +686,7 @@ body {
   transform: translateY(-4rem); }
 
 .movie-list__content {
-  background-color: #eee;
+  background-color: #e2e2c2;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   display: table;
