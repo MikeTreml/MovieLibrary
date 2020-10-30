@@ -3,27 +3,38 @@
 <head>
     <title>jQuery AJAX POST Form</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="css/icon-font.css">
+        <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+            <span class="heading-primary--main">Movie Library</span>
+            <span class="heading-primary--sub">It's showtime!</span>
+            </h1>
+        </div>
+    </header>
+    <div id="response">
+        <pre></pre>
+    </div>
+    <div id="movieData">
 
-<div id="response">
-    <pre></pre>
-</div>
-<div id="movieData">
+    </div>
 
-</div>
+    <form id="create-or-search-form">
+        <input type="text" name="title" placeholder="Title" />
+        <input type="text" name="genre" placeholder="Genre" />
+        <input type="text" name="director" placeholder="Director" />
 
-<form id="create-or-search-form">
-    <input type="text" name="title" placeholder="Title" />
-    <input type="text" name="genre" placeholder="Genre" />
-    <input type="text" name="director" placeholder="Director" />
-
-    <button type="submit">Submit</button>
-    <button type="search">Search</button>
-</form>
+        <button type="submit">Submit</button>
+        <button type="search">Search</button>
+    </form>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="./app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>
