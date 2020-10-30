@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using WebAPISample.Data;
 using WebAPISample.Models;
 
@@ -22,9 +23,8 @@ namespace WebAPISample.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-			 var movieList = _context.Movies.Where(m =>m.MovieId == m.MovieId).ToList();
+			var movieList = _context.Movies.Where(m =>m.MovieId == m.MovieId).ToList();
 		    return Ok(movieList);
-
 		}
 
         // GET api/movie/5
@@ -33,7 +33,8 @@ namespace WebAPISample.Controllers
         {
             // Retrieve movie by id from db logic
             // return Ok(movie);
-            return Ok();
+            var movie = _context.Movies.Where(m => m.MovieId == id).SingleOrDefault();// Added by Mike Treml 10/29
+            return Ok(movie);
         }
 
         // POST api/movie
@@ -42,7 +43,7 @@ namespace WebAPISample.Controllers
         {
             _context.Add(value);
             _context.SaveChanges();
-            return Ok(new string[] { value.Title });
+            return Ok();
         }
 
         // PUT api/movie
@@ -50,6 +51,8 @@ namespace WebAPISample.Controllers
         public IActionResult Put([FromBody] Movie movie)
         {
             // Update movie in db logic
+            _context.Movies.Update(movie);// Added by Mike Treml 10/29
+            _context.SaveChanges();
             return Ok();
         }
 
@@ -58,6 +61,9 @@ namespace WebAPISample.Controllers
         public IActionResult Delete(int id)
         {
             // Delete movie from db logic
+            var movie = _context.Movies.Where(m => m.MovieId == id).SingleOrDefault();// Added by Mike Treml 10/29
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
             return Ok();
         }
     }
