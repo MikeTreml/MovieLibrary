@@ -1,5 +1,6 @@
 getMovies();
 
+//Grabs database entries with GET and pass the data to LayoutMovies
 function getMovies(){
         $.ajax({
             type: "GET",
@@ -7,9 +8,14 @@ function getMovies(){
             dataType:'json',
             success: function( data, textStatus, jQxhr ){
                 LayoutMovies(data);
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
             }
         });
 } 
+
+//Create a String with all the Data entries to be printed to the html
 function LayoutMovies(data){
     let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
     
@@ -20,6 +26,8 @@ function LayoutMovies(data){
         $("#movieData").html(layout);
 }
 
+//Grabs one movie by ID with GET
+//****In procces create popup*****
 function loadMovieForm(id){
     $.ajax({
         type: "GET",
@@ -30,14 +38,20 @@ function loadMovieForm(id){
                 // processEditForm();
                 LayoutMovies(data);
                 console.log(id);
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
             }
     })
 }
+//Asks the user to verify that they wish to delete the movie.
 function confirmDelete(id) {
     if (confirm("Are you sure you want to delete this movie?")) {    
       deleteMovie(id);
     } 
 }
+
+//fills in textbox on the edit form
 function editMovieForm (data){
         $("#id-edit").val(data[0].movieId);
         $("#title-edit").val(data[0].title);
@@ -46,6 +60,7 @@ function editMovieForm (data){
         console.log(data[0].id);
 }
 
+//UPDATE use PUT to update current entries
 function processEditForm( e ){
     var dict = {
         MovieId : parseInt(this["movieId"].value),
@@ -72,14 +87,13 @@ function processEditForm( e ){
 }
 
 
-
+//CREATE NEW use POST for new entries
 function processForm( e ){
     var dict = {
         Title : this["title"].value,
         Genre: this["genre"].value,
         Director: this["director"].value
     };
-
     $.ajax({
         url: 'https://localhost:44325/api/movie',
         dataType: 'json',
