@@ -1,4 +1,4 @@
-getMovies();
+getMovies("dark");
 
 //Grabs database entries with GET and pass the data to LayoutMovies
 function getMovies(){
@@ -14,18 +14,21 @@ function getMovies(){
             }
         });
 } 
+//Search database with GET for any part of a word.
+function getMovies(search){
 
-//Create a String with all the Data entries to be printed to the html
-function LayoutMovies(data){
-    let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
-    
-    for(let i = 0; i < data.length; i++){
-        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn"><span><i class="icon-basic-trashcan-remove">"\e01f"</i><span></button></td></tr>`;
-    }
-    layout +=`</tbody></table>`;
-        $("#movieData").html(layout);
-}
-
+    $.ajax({
+        type: "GET",
+        url: "https://localhost:44325/api/movie/search/"+search,
+        dataType:'json',
+        success: function( data, textStatus, jQxhr ){
+            LayoutMovies(data);
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
+} 
 //Grabs one movie by ID with GET
 //****In procces create popup*****
 function loadMovieForm(id){
@@ -44,6 +47,18 @@ function loadMovieForm(id){
             }
     })
 }
+//Create a String with all the Data entries to be printed to the html
+function LayoutMovies(data){
+    let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
+    
+    for(let i = 0; i < data.length; i++){
+        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn"><span><i class="icon-basic-trashcan-remove">"\e01f"</i><span></button></td></tr>`;
+    }
+    layout +=`</tbody></table>`;
+        $("#movieData").html(layout);
+}
+
+
 //Asks the user to verify that they wish to delete the movie.
 function confirmDelete(id) {
     if (confirm("Are you sure you want to delete this movie?")) {    

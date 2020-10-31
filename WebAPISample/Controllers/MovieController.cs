@@ -37,10 +37,19 @@ namespace WebAPISample.Controllers
             var movie = _context.Movies.Where(m => m.MovieId == id);
             return Ok(movie);
         }
+        [HttpGet, Route("search/{search}")]
         public IActionResult Get(string search)
         {
-            var movie = _context.Movies.Where(m => m.Title.Contains(search)|| m.Year.Contains(search)||m.Genre.Contains(search)|| m.Actors.Contains(search));
-            return Ok(movie);
+            var movies = from m in _context.Movies
+                         select m;
+            if (!String.IsNullOrEmpty(search))
+            {
+                movies = movies.Where(m => m.Title.Contains(search)
+                                                || m.Year.Contains(search)
+                                                || m.Genre.Contains(search)
+                                                || m.Actors.Contains(search));
+            }
+            return Ok(movies);
         }
 
         // POST api/movie
