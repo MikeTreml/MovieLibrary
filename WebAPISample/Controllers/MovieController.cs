@@ -23,7 +23,8 @@ namespace WebAPISample.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-			var movieList = _context.Movies.Where(m =>m.MovieId == m.MovieId).ToList();
+            var movieList = _context.Movies.ToList();// ithink this is the correct way to do this.
+            //var movieList = _context.Movies.Where(m =>m.MovieId == m.MovieId).ToList();
 		    return Ok(movieList);
 		}
 
@@ -33,7 +34,12 @@ namespace WebAPISample.Controllers
         {
             // Retrieve movie by id from db logic
             // return Ok(movie);
-            var movie = _context.Movies.Where(m => m.MovieId == id);// Added by Mike Treml 10/29
+            var movie = _context.Movies.Where(m => m.MovieId == id);
+            return Ok(movie);
+        }
+        public IActionResult Get(string search)
+        {
+            var movie = _context.Movies.Where(m => m.Title.Contains(search)|| m.Year.Contains(search)||m.Genre.Contains(search)|| m.Actors.Contains(search));
             return Ok(movie);
         }
 
