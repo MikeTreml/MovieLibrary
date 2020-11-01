@@ -1,4 +1,4 @@
-getMoviesList();        // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
+      // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -31,7 +31,7 @@ function getMoviesList(){
         });
 } 
 //Search database with GET for any part of a word.
-function getMovies(search){
+function searchMovies(search){
 
     $.ajax({
         type: "GET",
@@ -55,7 +55,7 @@ function loadMovieForm(id){
             success: function( data, textStatus, jQxhr ){
                 editMovieForm(data);
                 // processEditForm();
-                LayoutMovies(data);
+                // LayoutMovies(data);
                 console.log(id);
             },
             error: function( jqXhr, textStatus, errorThrown ){
@@ -91,13 +91,14 @@ function deleteMovie(id){
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
         }
+        
     });
     
 }
 
 //fills in textbox on the edit form
-function editMovieForm (data){
-       // $("#id-edit").val(data[0].movieId);
+function editMovieForm (data){      
+       $("#id-edit").val(data[0].movieId);
         $("#title-edit").val(data[0].title);
         $("#genre-edit").val(data[0].genre);
         $("#director-edit").val(data[0].director);
@@ -126,7 +127,8 @@ function processEditForm( e ){
             console.log( errorThrown );
         }
     });
-
+    getMoviesList();
+    document.getElementById("edit-form").reset();
     e.preventDefault();
 }
 
@@ -182,6 +184,7 @@ function processFormXX( e ){
 
 $('#edit-form').submit( processEditForm );
 $('#create-form').submit( processForm );
-$('#search-form').submit( processFormXX );
+$('#search-data').submit( searchMovies );
+
 
 

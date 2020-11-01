@@ -43,9 +43,9 @@
         </div>
     
         <div id="search-cover">
-            <form class="search-form" method="get" action="">
+            <form class="search-form" id="search-data" action="">
               <div class="search-form__inside">
-                <div class="inside"><input class="search-data" type="text" placeholder="Find a film" id="search-data" required></div>
+                <div class="inside"><input class="search-data" type="text" placeholder="Find a film"  required></div>
                 <div class="inside" id="s-cover">
                   <button class="submit" type="submit">
                     <div id="s-circle"></div>
@@ -69,7 +69,7 @@
         <div class="movie-list">
             <div class="movie-list__browser">
                 <div class="u-margin-bottom-medium">
-                    <h3 class="heading-tertiary">
+                    <h3 class="heading-tertiary" onclick="getMoviesList()">
                         &ndash; Browse our movies! &ndash;
                     </h3>
                 </div>
