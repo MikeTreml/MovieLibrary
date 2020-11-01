@@ -10,38 +10,36 @@
         <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   <div class="movie-list__create">
-        <form action="#" class="form" id="create-form">
-            <div class="u-margin-bottom-medium">
-                <h3 class="heading-tertiary">
-                    &ndash; Add or Find a Movie! &ndash;
-                </h3>
-            </div>
-            <div class="form__group">
-                <input type="text" class="form__input" placeholder="Title" id="title" name="title">
-                <label for="title" class="form__label">Title</label>
-            </div>
-            <div class="form__group">
-                <input type="text" class="form__input" placeholder="Director" id="director" name="director">
-                <label for="director" class="form__label">Director</label>
-            </div>
-            <div class="form__group">
-                <input type="text" class="form__input" placeholder="Genre" id="genre" name="genre" name="genre">
-                <label for="genre" class="form__label">Genre</label>
-            </div>
-            <div class="form__group">
-                <button class="btn btn--white" type="submit">Submit &rarr;</button>
-            </div>
-        </form>
-    </div> 
-           
-       
-   
     <header class="header">
-        <div class="create-movie">
-            <button class="create-btn">
-                <span class="create-btn--span"></span><span class="create-btn--span"></span>
-              </button>
+        <div class="create-movie dropdown">
+            <button class="create-btn dropbtn" onclick="myFunction()">
+                <span class="create-btn--span"></span>
+                <span class="create-btn--span"></span>
+            </button>
+            <div id="myDropdown" class="movie-list__create dropdown-content">
+                <form action="#" class="form" id="create-form">
+                    <div class="u-margin-bottom-medium">
+                        <h3 class="heading-tertiary">
+                            &ndash; Add a Movie! &ndash;
+                        </h3>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Title" id="title" name="title">
+                        <label for="title" class="form__label">Title</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Director" id="director" name="director">
+                        <label for="director" class="form__label">Director</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Genre" id="genre" name="genre" name="genre">
+                        <label for="genre" class="form__label">Genre</label>
+                    </div>
+                    <div class="form__group">
+                        <button class="btn btn--white" type="submit">Submit &rarr;</button>
+                    </div>
+                </form>
+            </div> 
         </div>
     
         <div id="search-cover">

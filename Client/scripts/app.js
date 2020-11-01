@@ -1,5 +1,21 @@
 getMoviesList();        // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
 
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");     // Add :active modifier to button while dropdown is visible
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdownForm = document.getElementsByClassName("dropdown-content");
+        if (dropdownForm.contains('show')) {
+          dropdownForm.remove('show');
+        }
+      }
+    }
+  
 //Grabs database entries with GET and pass the data to LayoutMovies
 function getMoviesList(){
         $.ajax({
