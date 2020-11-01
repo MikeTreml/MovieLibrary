@@ -47,6 +47,7 @@ namespace WebAPISample.Controllers
                 movies = movies.Where(m => m.Title.Contains(search)
                                                 || m.Year.Contains(search)
                                                 || m.Genre.Contains(search)
+                                                || m.Director.Contains(search)
                                                 || m.Actors.Contains(search));
             }
             return Ok(movies);
