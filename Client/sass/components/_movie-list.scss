@@ -8,16 +8,17 @@
     
   }
 
-  &__right {
-    width: 60%;
+  &__browser {
+    width: 70%;
     display: table-cell;
     padding: 3rem 5rem;
   }
 
-  &__left {
-    width: 40%;
+  &__create {
+    width: 30%;
     display: table-cell;
     vertical-align: middle;
-    padding: 3rem 5rem;
+    padding: 1rem 1rem;
+    background-image: radial-gradient($color-light-beige-1, $color-grey-dark-3);
   }
 }
