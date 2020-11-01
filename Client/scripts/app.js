@@ -52,7 +52,7 @@ function LayoutMovies(data){
     let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn" onclick="comfirmDelete(${i+1})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})">Edit</button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
         $("#movieData").html(layout);
@@ -67,17 +67,21 @@ function confirmDelete(id) {
 }
 function deleteMovie(id){
     $.ajax({
-        url: 'https://localhost:44325/api/movie'+id,
-        type: 'delete'
-    })
-        .then(function (){
-            getMovies();
-
-        })
+        type: "DELETE",
+        url: "https://localhost:44325/api/movie/" + id,
+        success: function(){
+            getMoviesList(); 
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
+    
 }
+
 //fills in textbox on the edit form
 function editMovieForm (data){
-        $("#id-edit").val(data[0].movieId);
+       // $("#id-edit").val(data[0].movieId);
         $("#title-edit").val(data[0].title);
         $("#genre-edit").val(data[0].genre);
         $("#director-edit").val(data[0].director);
