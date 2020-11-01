@@ -52,7 +52,7 @@ function LayoutMovies(data){
     let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn" onclick="comfirmDelete(${i+1})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
         $("#movieData").html(layout);
@@ -65,7 +65,16 @@ function confirmDelete(id) {
       deleteMovie(id);
     } 
 }
+function deleteMovie(id){
+    $.ajax({
+        url: 'https://localhost:44325/api/movie'+id,
+        type: 'delete'
+    })
+        .then(function (){
+            getMovies();
 
+        })
+}
 //fills in textbox on the edit form
 function editMovieForm (data){
         $("#id-edit").val(data[0].movieId);
@@ -151,7 +160,7 @@ function processFormXX( e ){
 }
 
 $('#edit-form').submit( processEditForm );
-$('#create-or-search-form').submit( processForm );
-$('#create-or-search-form').search( processFormXX );
+$('#create-form').submit( processForm );
+$('#search-form').submit( processFormXX );
 
 
