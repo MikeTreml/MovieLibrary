@@ -23,10 +23,9 @@ namespace WebAPISample.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var movieList = _context.Movies.ToList();// ithink this is the correct way to do this.
-            //var movieList = _context.Movies.Where(m =>m.MovieId == m.MovieId).ToList();
-		    return Ok(movieList);
-		}
+            var movieList = _context.Movies.ToList();
+		        return Ok(movieList);
+		    }
 
         // GET api/movie/5
         [HttpGet("{id}")]
@@ -67,7 +66,7 @@ namespace WebAPISample.Controllers
         public IActionResult Put([FromBody] Movie movie)
         {
             // Update movie in db logic
-           
+
             _context.Movies.Update(movie);// Added by Mike Treml 10/29
             _context.SaveChanges();
             return Ok();

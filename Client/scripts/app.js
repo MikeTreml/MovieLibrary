@@ -52,7 +52,7 @@ function LayoutMovies(data){
     let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn" onclick="comfirmDelete(${i+1})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn" onclick="confirmDelete(${i+1})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
         $("#movieData").html(layout);
@@ -66,14 +66,11 @@ function confirmDelete(id) {
     } 
 }
 function deleteMovie(id){
-    $.ajax({
-        url: 'https://localhost:44325/api/movie'+id,
-        type: 'delete'
-    })
-        .then(function (){
-            getMovies();
-
-        })
+    var settings = {            // Not able to connect to API for HTTPGET
+        url: "https://localhost:44325/api/movie" + id,
+        type: "DELETE",
+    };
+    $.ajax(settings).done(getMoviesList())
 }
 //fills in textbox on the edit form
 function editMovieForm (data){
@@ -126,6 +123,7 @@ function processForm( e ){
         data: JSON.stringify(dict),
         success: function( data, textStatus, jQxhr ){
             $('#response pre').html( data );
+            getMoviesList(); 
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
