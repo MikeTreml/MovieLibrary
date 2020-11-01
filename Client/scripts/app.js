@@ -1,7 +1,7 @@
-getMovies("dark");
+getMoviesList();        // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
 
 //Grabs database entries with GET and pass the data to LayoutMovies
-function getMovies(){
+function getMoviesList(){
         $.ajax({
             type: "GET",
             url: "https://localhost:44325/api/movie/",
@@ -52,7 +52,7 @@ function LayoutMovies(data){
     let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn"><span><i class="icon-basic-trashcan-remove">"\e01f"</i><span></button></td></tr>`;
+        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${i+1})">Edit</button></td><td><button class="btn"><i class="fas fa-trash-alt"></i></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
         $("#movieData").html(layout);

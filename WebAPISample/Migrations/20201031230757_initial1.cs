@@ -2,7 +2,7 @@
 
 namespace WebAPISample.Migrations
 {
-    public partial class intial6 : Migration
+    public partial class initial1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,11 +31,21 @@ namespace WebAPISample.Migrations
                 columns: new[] { "MovieId", "Actors", "Director", "Genre", "ImageURL", "Rating", "Summary", "Title", "Year" },
                 values: new object[,]
                 {
-                    { 1, null, "Martin Scorsese", "Drama", null, null, null, "The Departed", null },
-                    { 2, null, "Christopher Nolan", "Drama", null, null, null, "The Dark Knight", null },
-                    { 3, null, "Christopher Nolan", "Drama", null, null, null, "Inception", null },
-                    { 4, null, "David Gordon Green", "Comedy", null, null, null, "Pineapple Express", null },
-                    { 5, null, "John McTiernan", "Action", null, null, null, "Die Hard", null }
+                    { 1, "", "Martin Scorsese", "Drama", "https://i.pinimg.com/originals/86/f9/d1/86f9d1a47d81531f1e12e343d7a6ae0e.png", "", "", "The Departed", "" },
+                    { 2, "", "Christopher Nolan", "Drama", "https://i.pinimg.com/originals/28/1d/03/281d03d7e0fae42cf27ebf513c00c6eb.jpg", "", "", "The Dark Knight", "" },
+                    { 3, "", "Christopher Nolan", "Drama", "https://i.pinimg.com/originals/77/bb/6d/77bb6d11954d639e10affff6565b213a.jpg", "", "", "Inception", "" },
+                    { 4, "", "David Gordon Green", "Comedy", "https://i.pinimg.com/originals/8c/f2/4a/8cf24aa1b78365ea504eb5948470bfd4.jpg", "", "", "Pineapple Express", "" },
+                    { 5, "", "John McTiernan", "Action", "https://2.bp.blogspot.com/-LrHDd4vdHHw/Tw6fI1XEoRI/AAAAAAAAAPY/ov2jgvNQt4k/w1200-h630-p-k-no-nu/poster-die-hard1resize.jpg", "", "", "Die Hard", "" },
+                    { 6, "", "", "", "", "", "", "", "" },
+                    { 7, "", "", "", "", "", "", "", "" },
+                    { 8, "", "", "", "", "", "", "", "" },
+                    { 9, "", "", "", "", "", "", "", "" },
+                    { 10, "", "", "", "", "", "", "", "" },
+                    { 11, "", "", "", "", "", "", "", "" },
+                    { 12, "", "", "", "", "", "", "", "" },
+                    { 13, "", "", "", "", "", "", "", "" },
+                    { 14, "", "", "", "", "", "", "", "" },
+                    { 15, "", "", "", "", "", "", "", "" }
                 });
         }
 
