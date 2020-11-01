@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "edc41e66-28e6-4656-bfcf-67a9d0248ac1",
+		"name": "MovieLibrary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get  Movie Database record 2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44325/api/movie/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44325",
+					"path": [
+						"api",
+						"movie",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get  Movie Database",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44325/api/movie",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44325",
+					"path": [
+						"api",
+						"movie"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get  Movie Database",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44325/api/movie",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44325",
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"movieId\": 1,\n        \"title\": \"The Departed\",\n        \"director\": \"Martin Scorsese\",\n        \"genre\": \"Drama\",\n        \"imageURL\": null,\n        \"summary\": null,\n        \"year\": null,\n        \"actors\": null,\n        \"rating\": null\n    },\n    {\n        \"movieId\": 2,\n        \"title\": \"The Dark Knight\",\n        \"director\": \"Christopher Nolan\",\n        \"genre\": \"Drama\",\n        \"imageURL\": null,\n        \"summary\": null,\n        \"year\": null,\n        \"actors\": null,\n        \"rating\": null\n    },\n    {\n        \"movieId\": 3,\n        \"title\": \"Inception\",\n        \"director\": \"Christopher Nolan\",\n        \"genre\": \"Drama\",\n        \"imageURL\": null,\n        \"summary\": null,\n        \"year\": null,\n        \"actors\": null,\n        \"rating\": null\n    },\n    {\n        \"movieId\": 4,\n        \"title\": \"Pineapple Express\",\n        \"director\": \"David Gordon Green\",\n        \"genre\": \"Comedy\",\n        \"imageURL\": null,\n        \"summary\": null,\n        \"year\": null,\n        \"actors\": null,\n        \"rating\": null\n    },\n    {\n        \"movieId\": 5,\n        \"title\": \"Die Hard\",\n        \"director\": \"John McTiernan\",\n        \"genre\": \"Action\",\n        \"imageURL\": null,\n        \"summary\": null,\n        \"year\": null,\n        \"actors\": null,\n        \"rating\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Post Movie Database record",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"The Postman\",\r\n    \"director\": \"Kevin Costner\",\r\n    \"genre\": \"Drama\",\r\n    \"imageURL\": \"https://upload.wikimedia.org/wikipedia/en/7/74/Postman_ver3.jpg\",\r\n    \"summary\": \"Years after a major global conflict has left the United States in dystopian disarray, a nomadic traveler who becomes known as the Postman (Kevin Costner) wanders through towns in the Northwest, delivering old mail. Thanks to the Postman's presence, people begin to believe that the U.S. government has been restored. During his travels, the Postman becomes involved with the lovely Abby (Olivia Williams) and clashes with the dictatorial Gen. Bethlehem (Will Patton).\",\r\n    \"year\": \"1997\",\r\n    \"actors\": \"Kevin Costner\",\r\n    \"rating\": \"6.1\"\r\n  }",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44325/api/movie/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44325",
+					"path": [
+						"api",
+						"movie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Movie Database record ",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "MovieId",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"movieId\":2,\"title\":\"The Dark Knight\",\"director\":\"Christopher Nolan\",\"genre\":\"Drama\",\"imageURL\":\"https://i.pinimg.com/originals/28/1d/03/281d03d7e0fae42cf27ebf513c00c6eb.jpg\",\"summary\":\"With the help of allies Lt. Jim Gordon (Gary Oldman) and DA Harvey Dent (Aaron Eckhart), Batman (Christian Bale) has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker (Heath Ledger) suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism.\",\"year\":\"2008\",\"actors\":\"Christian Bale, Gary Oldman, Heath Ledger, Michael Caine, Morgan Freeman\",\"rating\":\"9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44325/api/movie/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44325",
+					"path": [
+						"api",
+						"movie",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
