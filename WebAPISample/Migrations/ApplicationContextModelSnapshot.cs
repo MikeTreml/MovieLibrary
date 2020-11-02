@@ -154,7 +154,7 @@ namespace WebAPISample.Migrations
                         {
                             MovieId = 9,
                             Actors = "Natalie Portman, Jean Reno, Gary Oldman, Danny Aiello, Michael Badalucco",
-                            Director = "",
+                            Director = "Luc Besson",
                             Genre = "Action / Drama",
                             ImageURL = "https://piecesofpaint.com/wp-content/uploads/2013/12/leon_the_professional_credits.jpg",
                             Rating = "8.5",
