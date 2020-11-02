@@ -24,11 +24,13 @@ function getMoviesList(){
             dataType:'json',
             success: function( data, textStatus, jQxhr ){
                 LayoutMovies(data);
+                console.log( "Get Done without error" );
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
-        });
+        }).done(function(){ console.log( "Get Done" );
+    });
 } 
 //Search database with GET for any part of a word.
 function getMovies(search){
@@ -39,11 +41,14 @@ function getMovies(search){
         dataType:'json',
         success: function( data, textStatus, jQxhr ){
             LayoutMovies(data);
+            console.log( "search without error" );
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
         }
-    });
+    }).done(function(){ console.log( "search Done" );
+});
+    //getMoviesList(); 
 } 
 //Grabs one movie by ID with GET
 //****In procces create popup*****
@@ -55,13 +60,15 @@ function loadMovieForm(id){
             success: function( data, textStatus, jQxhr ){
                 editMovieForm(data);
                 // processEditForm();
-                LayoutMovies(data);
-                console.log(id);
+                //LayoutMovies(data);
+                console.log( "edit without error" );
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
-    })
+    }).done(function(){ console.log( "edit Done" );
+});
+    getMoviesList(); 
 }
 //Create a String with all the Data entries to be printed to the html
 function LayoutMovies(data){
@@ -86,22 +93,24 @@ function deleteMovie(id){
         type: "DELETE",
         url: "https://localhost:44325/api/movie/" + id,
         success: function(){
-            getMoviesList(); 
+            console.log( "Delete without error" )
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
         }
-    });
+    }).done(function(){ console.log( "Delete Done" );
+});
+    getMoviesList(); 
     
 }
 
 //fills in textbox on the edit form
 function editMovieForm (data){
-       // $("#id-edit").val(data[0].movieId);
+        $("#id-edit").val(data[0].movieId);
         $("#title-edit").val(data[0].title);
         $("#genre-edit").val(data[0].genre);
         $("#director-edit").val(data[0].director);
-        console.log(data[0].id);
+       
 }
 
 //UPDATE use PUT to update current entries
@@ -112,22 +121,28 @@ function processEditForm( e ){
         Genre: this["genre"].value,
         Director: this["director"].value
     };
-
     $.ajax({
         url: 'https://localhost:44325/api/movie',
         dataType: 'json',
         type: 'put',
         contentType: 'application/json',
         data: JSON.stringify(dict),
-        success: function( data, textStatus, jQxhr ){
-            $('#response pre').html( data );
+        success: function(data, textStatus, jQxhr ){
+            //$('#response pre').html( data );
+            console.log( "Update done without errors" );
+            console.log( data);
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
+            console.log( "Update error" );
         }
-    });
-
+    }).done(function(){ console.log( "Update done" );
+});
+    getMoviesList();
+    document.getElementById("edit-form").reset();
     e.preventDefault();
+    console.log( "Update refresh" );
+  
 }
 
 
@@ -146,14 +161,15 @@ function processForm( e ){
         data: JSON.stringify(dict),
         success: function( data, textStatus, jQxhr ){
             $('#response pre').html( data );
-            getMoviesList(); 
+            console.log( "Create new done without error" );
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
         }
-    });
-
+    }).done(function(){ console.log( "Create new done" );
+});
     e.preventDefault();
+    getMoviesList(); 
 }
 
 function processFormXX( e ){
@@ -178,6 +194,7 @@ function processFormXX( e ){
     });
 
     e.preventDefault();
+    getMoviesList(); 
 }
 
 $('#edit-form').submit( processEditForm );
