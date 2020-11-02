@@ -48,7 +48,7 @@ function searchMovies(search){
         }
     }).done(function(){ console.log( "search Done" );
 });
-    //getMoviesList(); 
+    
 } 
 //Grabs one movie by ID with GET
 function loadMovieForm(id){
@@ -60,14 +60,14 @@ function loadMovieForm(id){
                 editMovieForm(data);
                 // processEditForm();
                 //LayoutMovies(data);
-                console.log( "edit without error" );
+                console.log( "grab for edit without error" );
                 // LayoutMovies(data);
                 console.log(id);
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
-    }).done(function(){ console.log( "edit Done" );
+    }).done(function(){ console.log( "grab for edit Done" );
 });
     getMoviesList(); 
 }
@@ -95,13 +95,14 @@ function deleteMovie(id){
         url: "https://localhost:44325/api/movie/" + id,
         success: function(){
             console.log( "Delete without error" )
+            getMoviesList(); 
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
         }
     }).done(function(){ console.log( "Delete Done" );
 });
-    getMoviesList(); 
+    
         
 }
     
@@ -113,12 +114,12 @@ function editMovieForm (data){
         $("#title-edit").val(data[0].title);
         $("#genre-edit").val(data[0].genre);
         $("#director-edit").val(data[0].director);
-//         $("#genre-edit").val(data[0].genre);
-//         $("#imageurl-edit").val(data[0].imageurl);
-//         $("#summary-edit").val(data[0].summary);
-//         $("#year-edit").val(data[0].year);
-//         $("#actors-edit").val(data[0].actors);
-//         $("#rating-edit").val(data[0].rating);
+        $("#genre-edit").val(data[0].genre);
+        $("#imageurl-edit").val(data[0].imageurl);
+        $("#summary-edit").val(data[0].summary);
+        $("#year-edit").val(data[0].year);
+        $("#actors-edit").val(data[0].actors);
+        $("#rating-edit").val(data[0].rating);
  }
 
 //UPDATE use PUT to update current entries
@@ -126,14 +127,14 @@ function processEditForm( e ){
     var dict = {
         MovieId : parseInt(this["movieId"].value),
         Title : this["title"].value,
-        Genre: this["genre"].value,
-        Director: this["director"].value,
-        // Genre:this["genre"].value,
-        // ImageURL:this["imageurl"].value,
-        // Summary:this["summary"].value,
-        // Year:this["year"].value,
-        // Actors:this["actors"].value,
-        // Ratings:this["ratings"].value
+        Genre : this["genre"].value,
+        Director : this["director"].value,
+        Genre : this["genre"].value,
+        ImageURL : this["imageurl"].value,
+        Summary : this["summary"].value,
+        Year : this["year"].value,
+        Actors : this["actors"].value,
+        Rating : this["rating"].value
 
     };
     $.ajax({
@@ -165,14 +166,15 @@ function processEditForm( e ){
 function processForm( e ){
     var dict = {
         Title : this["title"].value,
-        Genre: this["genre"].value,
-        Director: this["director"].value,
-        // Genre:this["genre"].value,
-        // ImageURL:this["imageurl"].value,
-        // Summary:this["summary"].value,
-        // Year:this["year"].value,
-        // Actors:this["actors"].value,
-        // Ratings:this["ratings"].value
+        Genre : this["genre"].value,
+        Director : this["director"].value,
+        Genre : this["genre"].value,
+        ImageURL : this["imageurl"].value,
+        Summary : this["summary"].value,
+        Year : this["year"].value,
+        Actors : this["actors"].value,
+        Rating : this["rating"].value
+
     };
     $.ajax({
         url: 'https://localhost:44325/api/movie',
@@ -181,7 +183,7 @@ function processForm( e ){
         contentType: 'application/json',
         data: JSON.stringify(dict),
         success: function( data, textStatus, jQxhr ){
-            $('#response pre').html( data );
+            
             console.log( "Create new done without error" );
         },
         error: function( jqXhr, textStatus, errorThrown ){
@@ -196,14 +198,15 @@ function processForm( e ){
 function processFormXX( e ){
     var dict = {
         Title : this["title"].value,
-        Genre: this["genre"].value,
-        Director: this["director"].value,
-        // Genre:this["genre"].value,
-        // ImageURL:this["imageurl"].value,
-        // Summary:this["summary"].value,
-        // Year:this["year"].value,
-        // Actors:this["actors"].value,
-        // Ratings:this["ratings"].value
+        Genre : this["genre"].value,
+        Director : this["director"].value,
+        Genre : this["genre"].value,
+        ImageURL : this["imageurl"].value,
+        Summary : this["summary"].value,
+        Year : this["year"].value,
+        Actors : this["actors"].value,
+        Rating : this["rating"].value
+
     };
 
     $.ajax({
