@@ -1,4 +1,4 @@
-getMoviesList();        // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
+      // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -33,7 +33,7 @@ function getMoviesList(){
     });
 } 
 //Search database with GET for any part of a word.
-function getMovies(search){
+function searchMovies(search){
 
     $.ajax({
         type: "GET",
@@ -62,6 +62,8 @@ function loadMovieForm(id){
                 // processEditForm();
                 //LayoutMovies(data);
                 console.log( "edit without error" );
+                // LayoutMovies(data);
+                console.log(id);
             },
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
@@ -101,6 +103,8 @@ function deleteMovie(id){
     }).done(function(){ console.log( "Delete Done" );
 });
     getMoviesList(); 
+        
+    });
     
 }
 
@@ -199,6 +203,7 @@ function processFormXX( e ){
 
 $('#edit-form').submit( processEditForm );
 $('#create-form').submit( processForm );
-$('#search-form').submit( processFormXX );
+$('#search-data').submit( searchMovies );
+
 
 
