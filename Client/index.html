@@ -8,6 +8,36 @@
         <script src="https://kit.fontawesome.com/bc96f40e85.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
+        <style>
+.title-grid{grid-area: title;}
+.year-grid{grid-area: year;}
+.director-grid {grid-area: director;}
+.genre-grid{grid-area: genre;}
+.actors-grid{grid-area: actors;}
+.poster-grid{grid-area: poster;}
+.rating-grid{grid-area: rating;}
+.summary-grid{grid-area: summary;}
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+  grid-template-rows: 0.1fr 0.15fr 2fr 3fr;
+  gap: 6px 6px;
+  grid-template-areas:
+    "title title title title year year"
+    "director director genre genre poster poster"
+    "actors actors actors rating poster poster"
+    "summary summary summary summary poster poster";
+    background-color: #2196F3;
+}
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+
+        </style>
 </head>
 <body>
     <header class="header">
@@ -138,6 +168,19 @@
                         <button class="btn btn--white" type="submit">Update &rarr;</button>
                     </div>
                 </form>
+
+            </div>
+            <div>
+                <div class="grid-container">
+                    <div class="title-grid">Title</div>
+                    <div class="year-grid">Year</div>
+                    <div class="director-grid">Director</div>  
+                    <div class="genre-grid">Genre</div>
+                    <div class="actors-grid">Actors</div>
+                    <div class="poster-grid">Poster</div>
+                    <div class="rating-grid">Rating</div>
+                    <div class="summary-grid">Summary</div>
+                </div>
             </div>
         </div>
     </section>
