@@ -253,7 +253,7 @@ $('#search-data').submit( searchMovies );
 // document.
 function mOver(obj){
     var imgString = $(obj).find('.poster-data').text();
-    $("#details__poster-grid").attr('src', $(obj).find('.poster-data').text()).show();
+    $("#details__poster-grid img").attr('src', $(obj).find('.imageurl-data').text());
 
 
     $("#details__genre-grid").html($(obj).find('.genre-data').text());
@@ -267,6 +267,6 @@ function mOver(obj){
 };
 function mOut(obj){
 
-// }
+}
 
 
