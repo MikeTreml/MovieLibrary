@@ -76,7 +76,7 @@ function LayoutMovies(data){
     let layout = `<table><tbody id="movieData"><tr><th>Title</th><th>Director</th><th hidden>Genre</th><th hidden>ImageURL</th><th hidden>Summary</th><th hidden>Year</th><th hidden>Actors</th><th hidden>Rating</th><th>Edit</th><th>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td>${data[i].title}</td><td hidden>${data[i].director}</td><td>${data[i].genre}</td><td hidden>${data[i].imageURL}</td><td hidden>${data[i].summary}</td><td hidden>${data[i].year}</td><td hidden>${data[i].actors}</td><td hidden>${data[i].rating}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})">Edit</button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+        layout +=` <tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="title-data">${data[i].title}</td><td class="director-data" hidden>${data[i].director}</td><td class="genre-data">${data[i].genre}</td><td class="imageurl-data" hidden>${data[i].imageURL}</td><td class="summary-data" hidden>${data[i].summary}</td><td class="year-data" hidden>${data[i].year}</td><td class="actors-data" hidden>${data[i].actors}</td><td class="rating-data" hidden>${data[i].rating}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})">Edit</button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
         $("#movieDataShell").html(layout);
@@ -256,15 +256,18 @@ $('#search-data').submit( searchMovies );
 // function showDeetsMouseOver
 // document.
 function mOver(obj){
-    alert( $(obj).children().closest("tr").html());
-        $("#details__genre-grid").text("<td>${data[i].title}</td>");
-        $("#details__title-grid").html(`<p>Test paragraph</p>`);
-        $("#details__director-grid").html(`<p>${obj.item(0)}</p>`);
-        $("#details__poster-grid").html(`<img src="https://i.pinimg.com/originals/28/1d/03/281d03d7e0fae42cf27ebf513c00c6eb.jpg">`);
-        // $("#details__summary-grid").html(`<td>${data[i].title}</td>`);
-        // $("#details__year-grid").html(`<td>${data[i].title}</td>`);
-        // $("#details__actors-grid").html(`<td>${data[i].title}</td>`);
-        // $("#details__rating-grid").html(`<td>${data[i].title}</td>`);
+    var imgString = $(obj).find('.poster-data').text();
+    $("#details__poster-grid").attr('src', $(obj).find('.poster-data').text()).show();
+
+
+    $("#details__genre-grid").html($(obj).find('.genre-data').text());
+    $("#details__title-grid").html($(obj).find('.title-data').text());
+    $("#details__director-grid").html($(obj).find('.director-data').text());
+ //   $("#details__poster-grid").html("<img src="+imgString+">");
+    $("#details__summary-grid").html($(obj).find('.summary-data').text());
+    $("#details__year-grid").html($(obj).find('.year-data').text());
+    $("#details__actors-grid").html($(obj).find('.actors-data').text());
+    $("#details__rating-grid").html($(obj).find('.rating-data').text());
 };
 function mOut(obj){
 
