@@ -91,7 +91,7 @@
                         <label for="summary" class="form__label">Summary</label>
                     </div>
                     <div class="form__group">
-                        <button class="btn btn--white" type="submit">Submit &rarr;</button>
+                        <button class="btn btn--white" type="submit" onclick="searchMovies(document.getElementById('search').value, event)">Submit &rarr;</button>
                     </div>
                 </form>
             </div> 
@@ -100,9 +100,9 @@
         <div id="search-cover">
             <form class="search-form"  method="get" action="">
               <div class="search-form__inside">
-                <div class="inside"><input class="search-data" type="text" placeholder="Find a film"  required></div>
+                <div class="inside"><input class="search-data" type="text" placeholder="Find a film"  required id="search"></div>
                 <div class="inside" id="s-cover">
-                  <button class="submit" type="submit">
+                  <button class="submit" type="submit" onclick="searchMovies(document.getElementById('search').value, event)">
                     <div id="s-circle"></div>
                     <span class="handle-arrow"></span>
                   </button>
@@ -239,7 +239,7 @@
                     </div>
                 </div>
                 <div class="form__group">
-                    <button class="btn btn--white" type="submit">Update &rarr;</button>
+                    <button class="btn btn--white" type="submit" onclick="processEditForm(event)">Update &rarr;</button>
                 </div>
             </form>
         </div>
