@@ -33,7 +33,7 @@ function getMoviesList(){
     });
 } 
 //Search database with GET for any part of a word.
-function searchMovies(search){
+function searchMovies(search, event){
 
     $.ajax({
         type: "GET",
@@ -48,7 +48,7 @@ function searchMovies(search){
         }
     }).done(function(){ console.log( "search Done" );
 });
-    
+   event.preventDefault(); 
 } 
 //Grabs one movie by ID with GET
 function loadMovieForm(id){
@@ -114,7 +114,6 @@ function editMovieForm (data){
         $("#title-edit").val(data[0].title);
         $("#genre-edit").val(data[0].genre);
         $("#director-edit").val(data[0].director);
-        $("#genre-edit").val(data[0].genre);
         $("#imageurl-edit").val(data[0].imageurl);
         $("#summary-edit").val(data[0].summary);
         $("#year-edit").val(data[0].year);
@@ -129,7 +128,6 @@ function processEditForm( e ){
         Title : this["title"].value,
         Genre : this["genre"].value,
         Director : this["director"].value,
-        Genre : this["genre"].value,
         ImageURL : this["imageurl"].value,
         Summary : this["summary"].value,
         Year : this["year"].value,
@@ -154,9 +152,9 @@ function processEditForm( e ){
         }
     }).done(function(){ console.log( "Update done" );
 });
-    getMoviesList();
-    document.getElementById("edit-form").reset();
     e.preventDefault();
+    document.getElementById("edit-form").reset();
+    getMoviesList();
     console.log( "Update refresh" );
   
 }
@@ -168,7 +166,6 @@ function processForm( e ){
         Title : this["title"].value,
         Genre : this["genre"].value,
         Director : this["director"].value,
-        Genre : this["genre"].value,
         ImageURL : this["imageurl"].value,
         Summary : this["summary"].value,
         Year : this["year"].value,
@@ -200,7 +197,6 @@ function processFormXX( e ){
         Title : this["title"].value,
         Genre : this["genre"].value,
         Director : this["director"].value,
-        Genre : this["genre"].value,
         ImageURL : this["imageurl"].value,
         Summary : this["summary"].value,
         Year : this["year"].value,
@@ -255,19 +251,19 @@ $('#search-data').submit( searchMovies );
 // }
 // function showDeetsMouseOver
 // document.
-function mOver(obj){
-    alert( $(obj).children().closest("tr").html());
-        $("#details__genre-grid").text("<td>${data[i].title}</td>");
-        $("#details__title-grid").html(`<p>Test paragraph</p>`);
-        $("#details__director-grid").html(`<p>${obj.item(0)}</p>`);
-        $("#details__poster-grid").html(`<img src="https://i.pinimg.com/originals/28/1d/03/281d03d7e0fae42cf27ebf513c00c6eb.jpg">`);
-        // $("#details__summary-grid").html(`<td>${data[i].title}</td>`);
-        // $("#details__year-grid").html(`<td>${data[i].title}</td>`);
-        // $("#details__actors-grid").html(`<td>${data[i].title}</td>`);
-        // $("#details__rating-grid").html(`<td>${data[i].title}</td>`);
-};
-function mOut(obj){
+// function mOver(obj){
+//     alert( $(obj).children().closest("tr").html());
+//         $("#details__genre-grid").text("<td>${data[i].title}</td>");
+//         $("#details__title-grid").html(`<p>Test paragraph</p>`);
+//         $("#details__director-grid").html(`<p>${obj.item(0)}</p>`);
+//         $("#details__poster-grid").html(`<img src="https://i.pinimg.com/originals/28/1d/03/281d03d7e0fae42cf27ebf513c00c6eb.jpg">`);
+//         // $("#details__summary-grid").html(`<td>${data[i].title}</td>`);
+//         // $("#details__year-grid").html(`<td>${data[i].title}</td>`);
+//         // $("#details__actors-grid").html(`<td>${data[i].title}</td>`);
+//         // $("#details__rating-grid").html(`<td>${data[i].title}</td>`);
+// };
+// function mOut(obj){
 
-}
+// }
 
 
