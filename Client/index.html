@@ -9,14 +9,15 @@
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
         <style>
-.title-grid{grid-area: title;}
-.year-grid{grid-area: year;}
-.director-grid {grid-area: director;}
-.genre-grid{grid-area: genre;}
-.actors-grid{grid-area: actors;}
-.poster-grid{grid-area: poster;}
-.rating-grid{grid-area: rating;}
-.summary-grid{grid-area: summary;}
+.details__title-grid{grid-area: title;}
+.details__year-grid{grid-area: year;}
+.details__director-grid {grid-area: director;}
+.details__genre-grid{grid-area: genre;}
+.details__actors-grid{grid-area: actors;}
+.details__poster-grid{grid-area: poster;}
+.details__rating-grid{grid-area: rating;}
+.details__summary-grid{grid-area: summary;}
+
 .grid-container {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
@@ -54,36 +55,40 @@
                         </h3>
                     </div>
                     <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Title" id="title" name="title">
+                        <input type="text" class="form__input" placeholder="Title" id="title" name="title" required>
                         <label for="title" class="form__label">Title</label>
                     </div>
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Director" id="director" name="director">
-                        <label for="director" class="form__label">Director</label>
+                    <div class="popup__left">
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Director" id="director" name="director" required>
+                            <label for="director" class="form__label">Director</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Genre" id="genre" name="genre" required>
+                            <label for="genre" class="form__label">Genre</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Image URL" id="imageurl" name="imageurl" required>
+                            <label for="imageurl" class="form__label">Image URL</label>
+                        </div>
+                    </div>
+                    <div class="popup__right">
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Actors" id="actors" name="actors" required>
+                            <label for="actors" class="form__label">Actors</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Ratings" id="rating" name="rating" required>
+                            <label for="rating" class="form__label">Rating</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Year" id="year" name="year" required>
+                            <label for="year" class="form__label">Year</label>
+                        </div>
                     </div>
                     <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Genre" id="genre" name="genre">
-                        <label for="genre" class="form__label">Genre</label>
-                    </div>
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="ImageURL" id="imageurl" name="imageurl">
-                        <label for="imageurl" class="form__label">Image URL</label>
-                    </div>
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Summary" id="summary" name="summary">
+                        <textarea class="form__input" placeholder="Summary" id="summary" name="summary" cols="30" rows="4" required></textarea>
                         <label for="summary" class="form__label">Summary</label>
-                    </div>
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Year" id="year" name="year">
-                        <label for="year" class="form__label">Year</label>
-                    </div>
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Actors" id="actors" name="actors">
-                        <label for="actors" class="form__label">Actors</label>
-                    </div>
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Ratings" id="rating" name="rating">
-                        <label for="rating" class="form__label">Rating</label>
                     </div>
                     <div class="form__group">
                         <button class="btn btn--white" type="submit">Submit &rarr;</button>
@@ -120,16 +125,79 @@
                         &ndash; Browse our movies! &ndash;
                     </h3>
                 </div>
-                <div class="table" id="movieData"></div>
+                <div class="table" id="movieDataShell"></div>
             </div>
-            <div class="form__edit">
-                <form action="#" class="form" id="edit-form">
-                    <div class="u-margin-bottom-medium">
-                        <h3 class="heading-tertiary">
-                            &ndash; Edit this film! &ndash;
-                        </h3>
-                    </div>
-                    <div class="form__group">
+            <div class="test-table">
+                <table id="test-table">
+                    <tr>
+                        <tbody>
+                        <td>
+                            a
+                        </td>
+                        <td>
+                            A
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b
+                        </td>
+                        <td>
+                            B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            c
+                        </td>
+                        <td>
+                            C
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            d
+                        </td>
+                        <td>
+                            D
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            e
+                        </td>
+                        <td>
+                            E
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="details">
+                <div class="grid-container">
+                    <div class="details__title-grid" id="details__title-grid">Title</div>
+                    <div class="details__year-grid" id="details__year-grid">Year</div>
+                    <div class="details__director-grid" id="details__director-grid">Director</div>  
+                    <div class="details__genre-grid" id="details__genre-grid">Genre</div>
+                    <div class="details__actors-grid" id="details__actors-grid">Actors</div>
+                    <div class="details__poster-grid" id="details__poster-grid">Poster</div>
+                    <div class="details__rating-grid" id="details__rating-grid">Rating</div>
+                    <div class="details__summary-grid" id="details__summary-grid">Summary</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+    <div class="popup" id="popup">
+        <div class="form__edit popup__content">
+            <form action="#" class="form " id="edit-form">
+                <div class="u-margin-bottom-medium">
+                    <h3 class="heading-tertiary">
+                        &ndash; Edit this film! &ndash;
+                    </h3>
+                </div>
+                <div class="popup__left">
+                    <div class="form__group" hidden>
                         <input type="text" class="form__input" placeholder="Id" id="id-edit" name="movieId">
                     </div>
                     <div class="form__group">
@@ -148,10 +216,8 @@
                         <input type="text" class="form__input" placeholder="ImageURL" id="imageurl-edit" name="imageurl">
                         <label for="imageurl" class="form__label">Image URL</label>
                     </div>
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Summary" id="summary-edit" name="summary">
-                        <label for="summary" class="form__label">Summary</label>
-                    </div>
+                </div>
+                <div class="popup__right">
                     <div class="form__group">
                         <input type="text" class="form__input" placeholder="Year" id="year-edit" name="year">
                         <label for="year" class="form__label">Year</label>
@@ -165,26 +231,16 @@
                         <label for="rating" class="form__label">Rating</label>
                     </div>
                     <div class="form__group">
-                        <button class="btn btn--white" type="submit">Update &rarr;</button>
+                        <textarea class="form__input" placeholder="Summary" id="summary-edit" name="summary"></textarea>
+                        <label for="summary" class="form__label">Summary</label>
                     </div>
-                </form>
-
-            </div>
-            <div>
-                <div class="grid-container">
-                    <div class="title-grid">Title</div>
-                    <div class="year-grid">Year</div>
-                    <div class="director-grid">Director</div>  
-                    <div class="genre-grid">Genre</div>
-                    <div class="actors-grid">Actors</div>
-                    <div class="poster-grid">Poster</div>
-                    <div class="rating-grid">Rating</div>
-                    <div class="summary-grid">Summary</div>
                 </div>
-            </div>
+                <div class="form__group">
+                    <button class="btn btn--white" type="submit">Update &rarr;</button>
+                </div>
+            </form>
         </div>
-    </section>
-    
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
 </body>

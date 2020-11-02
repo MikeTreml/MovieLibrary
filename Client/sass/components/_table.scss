@@ -1,6 +1,6 @@
 .table {
   font-size: $default-font-size;
-
+  @include relCenter;
 }
 tr {
   height: 4rem;

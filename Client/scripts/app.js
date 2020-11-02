@@ -1,4 +1,4 @@
-     // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
+getMoviesList();
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -73,13 +73,13 @@ function loadMovieForm(id){
 }
 //Create a String with all the Data entries to be printed to the html
 function LayoutMovies(data){
-    let layout = `<table><tbody><tr><th>Title</th><th>Director</th><th>Genre</th><th>Edit</th><th>Delete</th></tr>`;
+    let layout = `<table><tbody id="movieData"><tr><th>Title</th><th>Director</th><th hidden>Genre</th><th hidden>ImageURL</th><th hidden>Summary</th><th hidden>Year</th><th hidden>Actors</th><th hidden>Rating</th><th>Edit</th><th>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr><td>${data[i].title}</td><td>${data[i].director}</td><td>${data[i].genre}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})">Edit</button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+        layout +=` <tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td>${data[i].title}</td><td hidden>${data[i].director}</td><td>${data[i].genre}</td><td hidden>${data[i].imageURL}</td><td hidden>${data[i].summary}</td><td hidden>${data[i].year}</td><td hidden>${data[i].actors}</td><td hidden>${data[i].rating}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})">Edit</button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
-        $("#movieData").html(layout);
+        $("#movieDataShell").html(layout);
 }
 
 
@@ -230,6 +230,44 @@ function processFormXX( e ){
 $('#edit-form').submit( processEditForm );
 $('#create-form').submit( processForm );
 $('#search-data').submit( searchMovies );
+// $('tbody tr').mouseover( showDetails );
 
+//Grabs one movie by ID with GET to show in DETAILS
+// function loadDetails(id){
+//     $.ajax({
+//         type: "GET",
+//         url: "https://localhost:44325/api/movie/" + id,
+//             dataType:'json',
+//             success: function( data, textStatus, jQxhr ){
+//                 showDetails(data);
+//                 // processEditForm();
+//                 //LayoutMovies(data);
+//                 console.log( "grab for edit without error" );
+//                 // LayoutMovies(data);
+//                 console.log(id);
+//             },
+//             error: function( jqXhr, textStatus, errorThrown ){
+//                 console.log( errorThrown );
+//             }
+//     }).done(function(){ console.log( "grab for edit Done" );
+// });
+//     getMoviesList(); 
+// }
+// function showDeetsMouseOver
+// document.
+function mOver(obj){
+    alert( $(obj).children().closest("tr").html());
+        $("#details__genre-grid").text("<td>${data[i].title}</td>");
+        $("#details__title-grid").html(`<p>Test paragraph</p>`);
+        $("#details__director-grid").html(`<p>${obj.item(0)}</p>`);
+        $("#details__poster-grid").html(`<img src="https://i.pinimg.com/originals/28/1d/03/281d03d7e0fae42cf27ebf513c00c6eb.jpg">`);
+        // $("#details__summary-grid").html(`<td>${data[i].title}</td>`);
+        // $("#details__year-grid").html(`<td>${data[i].title}</td>`);
+        // $("#details__actors-grid").html(`<td>${data[i].title}</td>`);
+        // $("#details__rating-grid").html(`<td>${data[i].title}</td>`);
+};
+function mOut(obj){
+
+}
 
 

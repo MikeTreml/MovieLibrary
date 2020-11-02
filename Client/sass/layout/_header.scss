@@ -21,8 +21,8 @@
             only screen and (min-width: 125em) {
         background-image: linear-gradient(
             to bottom,
-            rgba($color-primary-light, 0.8),
-            rgba($color-primary-dark, 0.8)),
+            rgba($color-grey-dark-2, 0.8),
+        rgba($color-grey-dark-3, 0.8)),
         url(../img/hero-small.jpg);
     }
 
@@ -33,7 +33,10 @@
     
     &__text-box {
         text-align: center;
-
-        @include absCenter;
+        position: absolute;
+        top: 66%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
     }
 }
