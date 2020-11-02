@@ -1,4 +1,4 @@
-      // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
+     // Temporary rename to force full dataset GET; Revert to getMovies() in order to implement overloading lines 4 and 18
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -51,7 +51,6 @@ function searchMovies(search){
     //getMoviesList(); 
 } 
 //Grabs one movie by ID with GET
-//****In procces create popup*****
 function loadMovieForm(id){
     $.ajax({
         type: "GET",
@@ -104,9 +103,9 @@ function deleteMovie(id){
 });
     getMoviesList(); 
         
-    });
-    
 }
+    
+
 
 //fills in textbox on the edit form
 function editMovieForm (data){
@@ -114,8 +113,13 @@ function editMovieForm (data){
         $("#title-edit").val(data[0].title);
         $("#genre-edit").val(data[0].genre);
         $("#director-edit").val(data[0].director);
-       
-}
+//         $("#genre-edit").val(data[0].genre);
+//         $("#imageurl-edit").val(data[0].imageurl);
+//         $("#summary-edit").val(data[0].summary);
+//         $("#year-edit").val(data[0].year);
+//         $("#actors-edit").val(data[0].actors);
+//         $("#rating-edit").val(data[0].rating);
+ }
 
 //UPDATE use PUT to update current entries
 function processEditForm( e ){
@@ -123,7 +127,14 @@ function processEditForm( e ){
         MovieId : parseInt(this["movieId"].value),
         Title : this["title"].value,
         Genre: this["genre"].value,
-        Director: this["director"].value
+        Director: this["director"].value,
+        // Genre:this["genre"].value,
+        // ImageURL:this["imageurl"].value,
+        // Summary:this["summary"].value,
+        // Year:this["year"].value,
+        // Actors:this["actors"].value,
+        // Ratings:this["ratings"].value
+
     };
     $.ajax({
         url: 'https://localhost:44325/api/movie',
@@ -155,7 +166,13 @@ function processForm( e ){
     var dict = {
         Title : this["title"].value,
         Genre: this["genre"].value,
-        Director: this["director"].value
+        Director: this["director"].value,
+        // Genre:this["genre"].value,
+        // ImageURL:this["imageurl"].value,
+        // Summary:this["summary"].value,
+        // Year:this["year"].value,
+        // Actors:this["actors"].value,
+        // Ratings:this["ratings"].value
     };
     $.ajax({
         url: 'https://localhost:44325/api/movie',
@@ -180,7 +197,13 @@ function processFormXX( e ){
     var dict = {
         Title : this["title"].value,
         Genre: this["genre"].value,
-        Director: this["director"].value
+        Director: this["director"].value,
+        // Genre:this["genre"].value,
+        // ImageURL:this["imageurl"].value,
+        // Summary:this["summary"].value,
+        // Year:this["year"].value,
+        // Actors:this["actors"].value,
+        // Ratings:this["ratings"].value
     };
 
     $.ajax({
