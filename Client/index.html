@@ -100,7 +100,7 @@
         <div id="search-cover">
             <form class="search-form"  method="get" action="">
               <div class="search-form__inside">
-                <div class="inside"><input class="search-data" type="text" placeholder="Find a film"  required id="search"></div>
+                <div class="inside"><input class="search-data" type="text" onfocus="this.value=''" placeholder="Find a film"  required id="search"></div>
                 <div class="inside" id="s-cover">
                   <button class="submit" type="submit" onclick="searchMovies(document.getElementById('search').value, event)">
                     <div id="s-circle"></div>
@@ -120,9 +120,9 @@
     <section class="section-movie-list">
         <div class="movie-list">
             <div class="movie-list__browser">
-                <div class="u-margin-bottom-medium">
-                    <h3 class="heading-tertiary" onclick="getMoviesList()">
-                        &ndash; Browse our movies! &ndash;
+                <div class="u-margin-bottom-medium" onclick="getMoviesList()">
+                    <h3 class="heading-tertiary" id="movieListHeading">
+                        &ndash; Browse our movies! &ndash; 
                     </h3>
                 </div>
                 <div class="table" id="movieDataShell"></div>

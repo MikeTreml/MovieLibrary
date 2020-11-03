@@ -30,11 +30,11 @@ function getMoviesList(){
             }
         }).done(function(){ console.log( "Get Done" );
     });
-    
+    document.getElementById("movieListHeading").textContent = "-- Browse our movies! --"; 
 } 
 //Search database with GET for any part of a word.
 function searchMovies(search, event){
-    document.getElementById("search").reset();
+    
     $.ajax({
         type: "GET",
         url: "https://localhost:44325/api/movie/search/"+search,
@@ -50,6 +50,8 @@ function searchMovies(search, event){
 });
    event.preventDefault(); 
    //LayoutMovies(data);
+   document.getElementById("search").value = '';
+   document.getElementById("movieListHeading").textContent = "-- Clear search. --";
 } 
 //Grabs one movie by ID with GET
 function loadMovieForm(id){
