@@ -10,9 +10,9 @@ function myFunction() {
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdownForm = document.getElementsByClassName("dropdown-content");
-        if (dropdownForm.contains('show')) {
-          dropdownForm.remove('show');
-        }
+         if (dropdownForm.contains('show')) {
+           dropdownForm.remove('show');
+         }
       }
     }
   
@@ -31,6 +31,7 @@ function getMoviesList(){
             }
         }).done(function(){ console.log( "Get Done" );
     });
+    
 } 
 //Search database with GET for any part of a word.
 function searchMovies(search, event){
@@ -49,6 +50,7 @@ function searchMovies(search, event){
     }).done(function(){ console.log( "search Done" );
 });
    event.preventDefault(); 
+   //LayoutMovies(data);
 } 
 //Grabs one movie by ID with GET
 function loadMovieForm(id){
@@ -99,6 +101,7 @@ function deleteMovie(id){
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
+            getMoviesList(); 
         }
     }).done(function(){ console.log( "Delete Done" );
 });
@@ -110,11 +113,11 @@ function deleteMovie(id){
 
 //fills in textbox on the edit form
 function editMovieForm (data){
-        $("#id-edit").val(data[0].movieId);
+        $("#id-edit").val(parseInt(data[0].movieId));
         $("#title-edit").val(data[0].title);
         $("#genre-edit").val(data[0].genre);
         $("#director-edit").val(data[0].director);
-        $("#imageurl-edit").val(data[0].imageurl);
+        $("#imageurl-edit").val(data[0].imageURL);
         $("#summary-edit").val(data[0].summary);
         $("#year-edit").val(data[0].year);
         $("#actors-edit").val(data[0].actors);
@@ -132,7 +135,7 @@ function processEditForm( e ){
         Summary : this["summary"].value,
         Year : this["year"].value,
         Actors : this["actors"].value,
-        Rating : this["rating"].value
+        Rating : this["rating"].value,
 
     };
     $.ajax({
@@ -142,24 +145,24 @@ function processEditForm( e ){
         contentType: 'application/json',
         data: JSON.stringify(dict),
         success: function(data, textStatus, jQxhr ){
-            //$('#response pre').html( data );
             console.log( "Update done without errors" );
-            console.log( data);
+            getMoviesList();
+           
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
             console.log( "Update error" );
+            getMoviesList();
+            
         }
     }).done(function(){ console.log( "Update done" );
-});
-    e.preventDefault();
+    });
     document.getElementById("edit-form").reset();
-    getMoviesList();
-    console.log( "Update refresh" );
+    e.preventDefault();
   
-}
-
-
+   
+ }
+ 
 //CREATE NEW use POST for new entries
 function processForm( e ){
     var dict = {
@@ -180,16 +183,17 @@ function processForm( e ){
         contentType: 'application/json',
         data: JSON.stringify(dict),
         success: function( data, textStatus, jQxhr ){
-            
+            getMoviesList(); 
             console.log( "Create new done without error" );
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
+            getMoviesList(); 
         }
     }).done(function(){ console.log( "Create new done" );
 });
     e.preventDefault();
-    getMoviesList(); 
+    
 }
 
 function processFormXX( e ){
@@ -213,14 +217,16 @@ function processFormXX( e ){
         data: JSON.stringify(dict),
         success: function( data, textStatus, jQxhr ){
             $('#response pre').html( data );
+            getMoviesList(); 
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );
+            getMoviesList(); 
         }
     });
 
     e.preventDefault();
-    getMoviesList(); 
+    
 }
 
 $('#edit-form').submit( processEditForm );
