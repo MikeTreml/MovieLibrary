@@ -192,7 +192,9 @@ function processForm( e ){
         }
     }).done(function(){ console.log( "Create new done" );
 });
+    document.getElementById("create-form").reset();
     e.preventDefault();
+    document.getElementById("myDropdown").classList.remove('show');
     
 }
 
