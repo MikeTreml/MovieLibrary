@@ -239,31 +239,7 @@ function processFormXX( e ){
 $('#edit-form').submit( processEditForm );
 $('#create-form').submit( processForm );
 $('#search-data').submit( searchMovies );
-// $('tbody tr').mouseover( showDetails );
 
-//Grabs one movie by ID with GET to show in DETAILS
-// function loadDetails(id){
-//     $.ajax({
-//         type: "GET",
-//         url: "https://localhost:44325/api/movie/" + id,
-//             dataType:'json',
-//             success: function( data, textStatus, jQxhr ){
-//                 showDetails(data);
-//                 // processEditForm();
-//                 //LayoutMovies(data);
-//                 console.log( "grab for edit without error" );
-//                 // LayoutMovies(data);
-//                 console.log(id);
-//             },
-//             error: function( jqXhr, textStatus, errorThrown ){
-//                 console.log( errorThrown );
-//             }
-//     }).done(function(){ console.log( "grab for edit Done" );
-// });
-//     getMoviesList(); 
-// }
-// function showDeetsMouseOver
-// document.
 function mOver(obj){
     var imgString = $(obj).find('.poster-data').text();
     $("#details__poster-grid img").attr('src', $(obj).find('.imageurl-data').text());
@@ -272,7 +248,6 @@ function mOver(obj){
     $("#details__genre-grid").html($(obj).find('.genre-data').text());
     $("#details__title-grid").html($(obj).find('.title-data').text());
     $("#details__director-grid").html($(obj).find('.director-data').text());
- //   $("#details__poster-grid").html("<img src="+imgString+">");
     $("#details__summary-grid").html($(obj).find('.summary-data').text());
     $("#details__year-grid").html($(obj).find('.year-data').text());
     $("#details__actors-grid").html($(obj).find('.actors-data').text());
