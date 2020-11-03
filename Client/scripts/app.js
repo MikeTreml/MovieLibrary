@@ -9,9 +9,8 @@ function myFunction() {
   // Close the dropdown if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-      var dropdownForm = document.getElementsByClassName("dropdown-content");
-         if (dropdownForm.contains('show')) {
-           dropdownForm.remove('show');
+         if (document.getElementById("myDropdown").classList.contains('show')) {
+           document.getElementById("myDropdown").classList.remove('show');
          }
       }
     }
@@ -35,7 +34,7 @@ function getMoviesList(){
 } 
 //Search database with GET for any part of a word.
 function searchMovies(search, event){
-
+    document.getElementById("search").reset();
     $.ajax({
         type: "GET",
         url: "https://localhost:44325/api/movie/search/"+search,
