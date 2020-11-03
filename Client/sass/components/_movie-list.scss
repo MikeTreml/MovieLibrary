@@ -23,6 +23,7 @@
   }
 
   &__details{
+    cursor: move;
     position: fixed;
     top: 50vh;
     right: 20%;
@@ -45,6 +46,15 @@
 }
 #draggable {
   cursor: move;
+  &:hover {
+    transform: translateY(-3px);
+        box-shadow: 0 5px 30px $color-light-beige-2, 0 0 0 15px $color-white;
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+  }
 }
 .grid-container {
   border-radius: 20px;
