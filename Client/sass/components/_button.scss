@@ -4,17 +4,18 @@
     &:visited {
         text-transform: uppercase;
         text-decoration: none;
-        padding: .75rem 2.5rem;
+        padding: .6rem 1.2rem;
         display: inline-block;
-        border-radius: 10rem;
+        border-radius: .6rem;
         transition: all .2s;
         position: relative;
-        font-size: $default-font-size;
+        font-size: 1.2rem;
 
         //Change for the <button> element
         border: none;
         cursor: pointer;
     }
+    
     
     &:hover {
         transform: translateY(-3px);
@@ -69,7 +70,9 @@
         animation-fill-mode: backwards;
     }
 }
-
+a {
+    font-size: 1rem;
+}
 .btn-text {
     &:link,
     &:visited {

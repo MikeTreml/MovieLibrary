@@ -8,37 +8,6 @@
         <script src="https://kit.fontawesome.com/bc96f40e85.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
-        <style>
-.details__title-grid{grid-area: title;}
-.details__year-grid{grid-area: year;}
-.details__director-grid {grid-area: director;}
-.details__genre-grid{grid-area: genre;}
-.details__actors-grid{grid-area: actors;}
-.details__poster-grid{grid-area: poster;}
-.details__rating-grid{grid-area: rating;}
-.details__summary-grid{grid-area: summary;}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
-  grid-template-rows: 0.1fr 0.15fr 2fr 3fr;
-  gap: 6px 6px;
-  grid-template-areas:
-    "title title title title year year"
-    "director director genre genre poster poster"
-    "actors actors actors rating poster poster"
-    "summary summary summary summary poster poster";
-    background-color: #2196F3;
-}
-.grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-}
-
-
-        </style>
 </head>
 <body>
     <header class="header">
@@ -118,7 +87,7 @@
         </div>
     </header>
     <section class="section-movie-list">
-        <div class="movie-list">
+        <div class="movie-list__content">
             <div class="movie-list__browser">
                 <div class="u-margin-bottom-medium" onclick="getMoviesList()">
                     <h3 class="heading-tertiary" id="movieListHeading">
@@ -128,14 +97,14 @@
                 <div class="table" id="movieDataShell"></div>
             </div>
             <div class="details">
-                <div class="grid-container">
+                <div class="grid-container movie-list__details">
                     <div class="details__title-grid" id="details__title-grid">Title</div>
                     <div class="details__year-grid" id="details__year-grid">Year</div>
                     <div class="details__director-grid" id="details__director-grid">Director</div>  
                     <div class="details__genre-grid" id="details__genre-grid">Genre</div>
                     <div class="details__actors-grid" id="details__actors-grid">Actors</div>
                     <div class="details__poster-grid" id="details__poster-grid">
-                        <p>Poster</p><img >
+                        <p>Poster</p><img class="movie-list__details--poster">
 
                     </div>
                     <div class="details__rating-grid" id="details__rating-grid">Rating</div>
@@ -175,6 +144,7 @@
                     </div>
                 </div>
                 <div class="popup__right">
+                    <a href="#" class="popup__close">&times;</a>
                     <div class="form__group">
                         <input type="text" class="form__input" placeholder="Year" id="year-edit" name="year">
                         <label for="year" class="form__label">Year</label>

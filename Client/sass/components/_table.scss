@@ -1,7 +1,10 @@
 .table {
-  font-size: $default-font-size;
+  font-size: 1.2rem;
   @include relCenter;
 }
 tr {
+  text-align: center;
   height: 4rem;
+  cursor: pointer;
+  padding-right: 2rem;
 }

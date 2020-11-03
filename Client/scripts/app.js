@@ -1,16 +1,20 @@
 getMoviesList();
 
+// function myPopup() {
+//     document.getElementById("popup").classList.toggle("show")
+// }
+
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");     // Add :active modifier to button while dropdown is visible
-  }
+}
   
   // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
+window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-         if (document.getElementById("myDropdown").classList.contains('show')) {
-           document.getElementById("myDropdown").classList.remove('show');
+         if (document.getElementsByClassName("dropdown-content").classList.contains('show')) {
+           document.getElementById("dropdown-content").classList.remove('show');
          }
       }
     }
@@ -76,10 +80,10 @@ function loadMovieForm(id){
 }
 //Create a String with all the Data entries to be printed to the html
 function LayoutMovies(data){
-    let layout = `<table><tbody id="movieData"><tr><th>Title</th><th>Director</th><th hidden>Genre</th><th hidden>ImageURL</th><th hidden>Summary</th><th hidden>Year</th><th hidden>Actors</th><th hidden>Rating</th><th>Edit</th><th>Delete</th></tr>`;
+    let layout = `<table><tbody id="movieData"><tr><th>Title</th><th hidden>Director</th><th>Genre</th><th hidden>ImageURL</th><th hidden>Summary</th><th hidden>Year</th><th hidden>Actors</th><th hidden>Rating</th><th hidden>Edit</th><th hidden>Delete</th></tr>`;
     
     for(let i = 0; i < data.length; i++){
-        layout +=` <tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="title-data">${data[i].title}</td><td class="director-data" hidden>${data[i].director}</td><td class="genre-data">${data[i].genre}</td><td class="imageurl-data" hidden>${data[i].imageURL}</td><td class="summary-data" hidden>${data[i].summary}</td><td class="year-data" hidden>${data[i].year}</td><td class="actors-data" hidden>${data[i].actors}</td><td class="rating-data" hidden>${data[i].rating}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})">Edit</button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+        layout +=` <tr onmouseover="mOver(this)" onmouseout="mOut(this)"><td class="title-data">${data[i].title}</td><td class="director-data" hidden>${data[i].director}</td><td class="genre-data">${data[i].genre}</td><td class="imageurl-data" hidden>${data[i].imageURL}</td><td class="summary-data" hidden>${data[i].summary}</td><td class="year-data" hidden>${data[i].year}</td><td class="actors-data" hidden>${data[i].actors}</td><td class="rating-data" hidden>${data[i].rating}</td><td><button class="btn" onclick="loadMovieForm(${data[i].movieId})"><a href="#popup" text-decoration="none">Edit</a></button></td><td><button class="btn" onclick="confirmDelete(${data[i].movieId})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
     }
     layout +=`</tbody></table>`;
         $("#movieDataShell").html(layout);
