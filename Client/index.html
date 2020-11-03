@@ -8,6 +8,7 @@
         <script src="https://kit.fontawesome.com/bc96f40e85.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <body>
     <header class="header">
@@ -81,7 +82,7 @@
           </div>
         <div class="header__text-box">
             <h1 class="heading-primary">
-            <span class="heading-primary--main">Movie Library</span>
+            <span class="heading-primary--main" >Movie Library</span>
             <span class="heading-primary--sub">It's showtime!</span>
             </h1>
         </div>
@@ -90,21 +91,21 @@
         <div class="movie-list__content">
             <div class="movie-list__browser">
                 <div class="u-margin-bottom-medium" onclick="getMoviesList()">
-                    <h3 class="heading-tertiary" id="movieListHeading">
+                    <h3 class="heading-tertiary" id="movieListHeading" >
                         &ndash; Browse our movies! &ndash; 
                     </h3>
                 </div>
                 <div class="table" id="movieDataShell"></div>
             </div>
             <div class="details">
-                <div class="grid-container movie-list__details">
+                <div class="grid-container movie-list__details" id="draggable">
                     <div class="details__title-grid" id="details__title-grid">Title</div>
                     <div class="details__year-grid" id="details__year-grid">Year</div>
                     <div class="details__director-grid" id="details__director-grid"><p>Director</p>></div>  
                     <div class="details__genre-grid" id="details__genre-grid">Genre</div>
                     <div class="details__actors-grid" id="details__actors-grid">Actors</div>
                     <div class="details__poster-grid" id="details__poster-grid">
-                        <p>Poster</p><img class="movie-list__details--poster">
+                        <img class="movie-list__details--poster">
 
                     </div>
                     <div class="details__rating-grid" id="details__rating-grid">Rating</div>
@@ -169,6 +170,7 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>

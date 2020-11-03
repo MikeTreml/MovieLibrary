@@ -239,6 +239,9 @@ function processFormXX( e ){
 $('#edit-form').submit( processEditForm );
 $('#create-form').submit( processForm );
 $('#search-data').submit( searchMovies );
+$( function() {
+    $( "#draggable" ).draggable();
+  });
 
 function mOver(obj){
     var imgString = $(obj).find('.poster-data').text();

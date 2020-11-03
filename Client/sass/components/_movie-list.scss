@@ -22,7 +22,7 @@
     
   }
 
-  &__details {
+  &__details{
     position: fixed;
     top: 50vh;
     right: 20%;
@@ -38,6 +38,13 @@
       width: 60%;
     }
   }
+}
+#movieListHeading {
+  cursor: pointer;
+
+}
+#draggable {
+  cursor: move;
 }
 .grid-container {
   border-radius: 20px;

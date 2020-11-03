@@ -767,7 +767,7 @@ a {
   left: 1.5rem; }
 
 .movie-list__details {
-  position: fixed;
+  position: relative;
   top: 50vh;
   right: 20%;
   width: 50rem;
@@ -779,6 +779,12 @@ a {
   .movie-list__details--poster {
     position: relative;
     width: 60%; }
+
+#movieListHeading {
+  cursor: pointer; }
+
+#draggable {
+  cursor: move; }
 
 .grid-container {
   border-radius: 20px;
