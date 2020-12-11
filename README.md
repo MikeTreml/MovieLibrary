@@ -1,10 +1,10 @@
 # Movie Library
-> Description: A Web Application that displays a list of movies from a database. The web application access the database through our RESTful API that we built. The users are able to add, delete, edit and search movies.
+Description: A Web Application that displays a list of movies from a database. The web application access the database through our RESTful API that we built. The users are able to add, delete, edit and search movies.
 
 Technologies: 
 ASP.NET MVC, HTML, CSS, JavaScript, AJAX, jQuery.
 
-![](./video.mp4)
+![](.video.mp4)
 <hr>
 
 
